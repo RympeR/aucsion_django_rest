@@ -8,12 +8,12 @@ from rest_framework.generics import GenericAPIView
 
 class UserView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserGetSerializer
 
 
 class UserCreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserGetSerializer
 
 
 class SellerView(generics.RetrieveUpdateDestroyAPIView):

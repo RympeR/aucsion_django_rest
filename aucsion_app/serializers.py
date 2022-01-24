@@ -7,7 +7,7 @@ from rest_framework import serializers
 from .models import *
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserGetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class SellerSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    user = UserGetSerializer()
 
     class Meta:
         model = Seller
@@ -23,7 +23,7 @@ class SellerSerializer(serializers.ModelSerializer):
 
 
 class SellerBlackListSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    user = UserGetSerializer()
     seller = SellerSerializer()
 
     class Meta:
@@ -32,7 +32,7 @@ class SellerBlackListSerializer(serializers.ModelSerializer):
 
 
 class BuyerSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    user = UserGetSerializer()
 
     class Meta:
         model = Buyer

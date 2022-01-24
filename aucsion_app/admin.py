@@ -6,13 +6,13 @@ from django.contrib.admin import DateFieldListFilter
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = [
-        'pk', 'email', 'first_name', 'last_name',
+        'pk', 'username', 'first_name', 'last_name',
     ]
     list_display_links = [
         'pk'
     ]
     search_fields = [
-        'first_name', 'email',
+        'first_name', 'username',
     ]
 
 
@@ -23,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
         'pk', 'seller', 'aucsion', 'product_type'
     ]
     search_fields = [
-        'seller__email', 'seller__first_name'
+        'seller__username', 'seller__first_name'
     ]
 
 
@@ -33,7 +33,7 @@ class AucsionHistoryAdmin(admin.ModelAdmin):
         'pk', 'buyer', 'aucsion', 'bet',
     ]
     search_fields = [
-        'buyer__email', 'buyer__first_name'
+        'buyer__username', 'buyer__first_name'
     ]
 
 
@@ -72,7 +72,7 @@ class PurchaseAdmin(admin.ModelAdmin):
         ('datetime', DateFieldListFilter),
     )
     search_fields = [
-        'buyer__email', 'buyer__first_name'
+        'buyer__username', 'buyer__first_name'
     ]
     ordering = '-datetime',
 
@@ -83,7 +83,7 @@ class BuyerBlackListAdmin(admin.ModelAdmin):
         'pk', 'buyer'
     ]
     search_fields = [
-        'buyer__email', 'buyer__first_name'
+        'buyer__username', 'buyer__first_name'
     ]
     list_display_links = 'pk',
 
@@ -98,8 +98,8 @@ class SellerBlackListAdmin(admin.ModelAdmin):
         'user', 'seller'
     ]
     search_fields = [
-        'user__email', 'user__first_name',
-        'seller__email', 'seller__first_name',
+        'user__username', 'user__first_name',
+        'seller__username', 'seller__first_name',
     ]
     list_display_links = [
         'user'
@@ -113,5 +113,5 @@ class SellerAdmin(admin.ModelAdmin):
     ]
     list_display_links = 'user',
     search_fields = [
-        'user__email', 'user__first_name'
+        'user__username', 'user__first_name'
     ]
