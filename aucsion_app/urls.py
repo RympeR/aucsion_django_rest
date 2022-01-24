@@ -1,3 +1,28 @@
 from django.urls import path, include
-
-urlpatterns = []
+from .views import *
+urlpatterns = [
+    path('/', UserView.as_view()),
+    path('/', UserCreateView.as_view()),
+    path('/', SellerView.as_view()),
+    path('/', SellerCreateView.as_view()),
+    path('/', SellerBlackListView.as_view()),
+    path('/', SellerBlackListCreateView.as_view()),
+    path('/', BuyerBlackListView.as_view()),
+    path('/', BuyerBlackListCreateView.as_view()),
+    path('/', BuyerView.as_view()),
+    path('/', BuyerCreateView.as_view()),
+    path('/', AucsionView.as_view()),
+    path('/', AucsionCreateView.as_view()),
+    path('/', AucsionHistoryView.as_view()),
+    path('/', AucsionHistoryCreateView.as_view()),
+    path('/', ProductView.as_view()),
+    path('/', ProductCreateView.as_view()),
+    path('/', PurchaseView.as_view()),
+    path('/', PurchaseCreateView.as_view()),
+    path('/', DeliveryView.as_view()),
+    path('/', DeliveryCreateView.as_view()),
+    path('expert/', ExpertView.as_view()),
+    path('expert-create/', ExpertCreateView.as_view()),
+    path('expertise/', ExpertiseView.as_view()),
+    path('expertise-create/', ExpertiseCreateView.as_view()),
+]
